@@ -1,0 +1,14 @@
+.App {
+  display: flex;
+}
+
+.App textarea {
+  flex: 1;
+  padding: 10px;
+}
+
+.App .Previewer {
+  flex: 1;
+  border: 1px solid #DCDCDC;
+  padding: 10px;
+}
