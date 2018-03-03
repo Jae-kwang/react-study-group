@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Row = ({item}) => {
-  // console.log(item);
   return (
     <tr>
       <td>{item.name.official.slice(0,30)}</td>

@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { Header, Fields, List } from '../components'
 import _ from 'lodash';
-
-import { getTargetValue } from'../filter'
+import { getTargetValue, setFilterList } from'../filter'
 
 class MultiSearch extends Component {
 
@@ -35,7 +34,7 @@ class MultiSearch extends Component {
 
   filterByType(inputValue, filterType) {
     const list = this.getFilteredList(inputValue, filterType)
-    this.setFilterList(list, filterType);
+    setFilterList.call(this, list, filterType);
   }
 
   getFilteredList(inputValue, filterType) {
@@ -45,18 +44,6 @@ class MultiSearch extends Component {
     });
     return (!inputValue) ? originList : newList; 
   };
-
-  setFilterList(list, type) {
-    if (type ==='country') {
-      this.setState({ filteredByCountry: list });
-    } else if (type === 'capital') {
-      this.setState({ filteredByCapital: list });
-    } else if (type === 'region') {
-      this.setState({ filteredByRegion: list });
-    } else if (type === 'subregion') {
-      this.setState({ filteredBySubregion: list });
-    }
-  }
 
   // 필터링을 통해 얻은 리스트들을 최종적으로 교집합 하여 리스트를 얻음
   getIntersectionList() {
